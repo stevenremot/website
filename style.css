@@ -1,0 +1,89 @@
+:root {
+    --color-primary: red;
+    --color-primary-reverse: white;
+
+    --color-block: #d6d6d6;
+    --color-block-reverse: black;
+
+    --page-padding-y: 4rem;
+    --page-padding-x: 4rem;
+}
+
+/* Reset */
+
+body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding: var(--page-padding-y) var(--page-padding-x);
+    margin: 0;
+    display: flex;
+    gap: 4rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+/* General layout */
+
+.left-column {
+    flex: 0 0 min-content;
+}
+
+.right-column {
+    flex: 1 1 0;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Components */
+
+.name-header {
+    --img-width: 280px;
+
+    background-color: var(--color-primary);
+    color: var(--color-primary-reverse);
+    text-align: center;
+
+    padding: 1rem;
+    margin-top: calc(var(--page-padding-y) * -1);
+    padding-top: calc(var(--page-padding-y) + 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    --radius: calc(var(--img-width) / 2 + 0.5rem);
+    border-radius: 0 0 var(--radius) var(--radius);
+
+    img {
+        width: var(--img-width);
+        border-radius: 50%;
+    }
+}
+
+.tag-list {
+    list-style-type: none;
+
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    li {
+        background-color: var(--color-block);
+        color: var(--color-block-reverse);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+    }
+}
