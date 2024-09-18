@@ -1,0 +1,10 @@
+@layer overrides {
+    p,
+    li {
+        font-size: 0.75rem;
+    }
+
+    .print-hide {
+        display: none;
+    }
+}

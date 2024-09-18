@@ -1,5 +1,5 @@
 :root {
-    --color-primary: red;
+    --color-primary: #38a3a5;
     --color-primary-reverse: white;
 
     --color-block: #d6d6d6;
@@ -11,79 +11,143 @@
 
 /* Reset */
 
-body {
-    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    padding: var(--page-padding-y) var(--page-padding-x);
-    margin: 0;
-    display: flex;
-    gap: 4rem;
-}
+@layer reset {
+    body {
+        font-size: 14px;
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        padding: var(--page-padding-y) var(--page-padding-x);
+        margin: 0;
+        display: flex;
+        gap: 3rem;
 
-h1 {
-    margin: 0;
-}
+        @media (max-width: 600px) {
+            flex-direction: column;
+        }
+    }
 
-p {
-    margin: 0;
-}
+    h1,
+    h2,
+    h3 {
+        margin: 0;
+    }
 
-/* General layout */
-
-.left-column {
-    flex: 0 0 min-content;
-}
-
-.right-column {
-    flex: 1 1 0;
-}
-
-.left-column,
-.right-column {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* Components */
-
-.name-header {
-    --img-width: 280px;
-
-    background-color: var(--color-primary);
-    color: var(--color-primary-reverse);
-    text-align: center;
-
-    padding: 1rem;
-    margin-top: calc(var(--page-padding-y) * -1);
-    padding-top: calc(var(--page-padding-y) + 1rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-
-    --radius: calc(var(--img-width) / 2 + 0.5rem);
-    border-radius: 0 0 var(--radius) var(--radius);
-
-    img {
-        width: var(--img-width);
-        border-radius: 50%;
+    p {
+        margin: 0;
+        text-align: justify;
     }
 }
 
-.tag-list {
-    list-style-type: none;
+@layer site {
+    /* General layout */
 
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    flex-direction: row;
+    .left-column {
+        flex: 0 0 min-content;
+    }
 
-    li {
-        background-color: var(--color-block);
-        color: var(--color-block-reverse);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        font-size: 0.75rem;
+    .right-column {
+        flex: 1 1 0;
+    }
+
+    .left-column,
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Components */
+
+    .name-header {
+        --img-width: 200px;
+
+        background-color: var(--color-primary);
+        color: var(--color-primary-reverse);
+        align-self: center;
+
+        padding: 1rem;
+        margin-top: calc(var(--page-padding-y) * -1);
+        padding-top: calc(var(--page-padding-y));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        --radius: calc(var(--img-width) / 2 + 0.5rem);
+        border-radius: 0 0 var(--radius) var(--radius);
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        img {
+            width: var(--img-width);
+            border-radius: 50%;
+        }
+    }
+
+    .contact-list {
+        list-style-type: none;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .emoji {
+            display: inline-block;
+            font-size: 1rem;
+            margin-left: 0.3rem;
+        }
+
+        .icon {
+            width: auto;
+            height: 1.5rem;
+        }
+    }
+
+    .tag-list {
+        list-style-type: none;
+
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding-left: 0;
+
+        li {
+            background-color: var(--color-block);
+            color: var(--color-block-reverse);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    .skills-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .experiences-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
     }
 }
+
+@layer overrides;
