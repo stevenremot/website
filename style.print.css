@@ -1,4 +1,27 @@
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 2cm;
+    }
+
+    @page :first {
+        margin-top: 0;
+    }
+}
+
+.section {
+    page-break-before: avoid;
+}
+
 @layer overrides {
+    :root {
+        --page-padding-y: 2cm;
+    }
+
+    body {
+        padding: var(--page-padding-y) 0 0 0;
+    }
+
     p,
     li {
         font-size: 0.75rem;

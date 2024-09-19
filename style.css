@@ -1,12 +1,14 @@
-:root {
-    --color-primary: #38a3a5;
-    --color-primary-reverse: white;
+@layer variables {
+    :root {
+        --color-primary: #38a3a5;
+        --color-primary-reverse: white;
 
-    --color-block: #d6d6d6;
-    --color-block-reverse: black;
+        --color-block: #d6d6d6;
+        --color-block-reverse: black;
 
-    --page-padding-y: 4rem;
-    --page-padding-x: 4rem;
+        --page-padding-y: 4rem;
+        --page-padding-x: 4rem;
+    }
 }
 
 /* Reset */
@@ -19,6 +21,7 @@
         padding: var(--page-padding-y) var(--page-padding-x);
         margin: 0;
         display: flex;
+        justify-content: center;
         gap: 3rem;
 
         @media (max-width: 600px) {
@@ -46,7 +49,7 @@
     }
 
     .right-column {
-        flex: 1 1 0;
+        flex: 0 1 600px;
     }
 
     .left-column,
