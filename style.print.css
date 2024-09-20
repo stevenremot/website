@@ -9,8 +9,8 @@
     }
 }
 
-.section {
-    page-break-before: avoid;
+section {
+    page-break-inside: avoid;
 }
 
 @layer overrides {
