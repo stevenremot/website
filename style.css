@@ -1,191 +1,196 @@
 @layer variables {
-    :root {
-        --color-primary: #38a3a5;
-        --color-primary-reverse: white;
+  :root {
+    --color-primary: #38a3a5;
+    --color-primary-reverse: white;
 
-        --color-faded: gray;
+    --color-faded: gray;
 
-        --color-block: #d6d6d6;
-        --color-block-reverse: black;
+    --color-block: #d6d6d6;
+    --color-block-reverse: black;
 
-        --page-padding-y: 4rem;
-        --page-padding-x: 4rem;
+    --page-padding-y: 4rem;
+    --page-padding-x: 4rem;
+
+    @media (max-width: 600px) {
+      --page-padding-y: 2rem;
+      --page-padding-x: 1rem;
     }
+  }
 }
 
 /* Reset */
 
 @layer reset {
-    * {
-        margin: 0;
-    }
+  * {
+    margin: 0;
+  }
 
-    body {
-        font-size: 14px;
-        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        line-height: 1.4em;
-        padding: var(--page-padding-y) var(--page-padding-x);
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
+  body {
+    font-size: 14px;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.4em;
+    padding: var(--page-padding-y) var(--page-padding-x);
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
 
-        @media (max-width: 600px) {
-            flex-direction: column;
-        }
+    @media (max-width: 600px) {
+      flex-direction: column;
     }
+  }
 
-    p {
-        word-break: normal;
-        overflow-wrap: break-word;
-        hyphens: auto;
-    }
+  p {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
 
 @layer site {
-    /* General layout */
+  /* General layout */
 
-    .left-column {
-        flex: 0 0 min-content;
+  .left-column {
+    flex: 0 0 min-content;
+  }
+
+  .right-column {
+    flex: 0 1 600px;
+  }
+
+  .left-column,
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Components */
+
+  .small {
+    font-size: 0.75rem;
+  }
+
+  .name-header {
+    --img-width: 200px;
+
+    background-color: var(--color-primary);
+    color: var(--color-primary-reverse);
+    align-self: center;
+
+    padding: 1rem;
+    margin-top: calc(var(--page-padding-y) * -1);
+    padding-top: calc(var(--page-padding-y));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    --radius: calc(var(--img-width) / 2 + 0.5rem);
+    border-radius: 0 0 var(--radius) var(--radius);
+
+    h1,
+    p {
+      text-align: center;
+      word-break: keep-all;
     }
 
-    .right-column {
-        flex: 0 1 600px;
+    img {
+      width: var(--img-width);
+      border-radius: 50%;
+    }
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .left-column,
-    .right-column {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+    .emoji {
+      display: inline-block;
+      font-size: 1rem;
+      margin-left: 0.3rem;
     }
 
-    /* Components */
+    .icon {
+      width: auto;
+      height: 1.5rem;
+    }
+  }
 
-    .small {
-        font-size: 0.75rem;
+  .tag-list {
+    list-style-type: none;
+
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-left: 0;
+
+    li {
+      background-color: var(--color-block);
+      color: var(--color-block-reverse);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  .skills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  .experiences-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
-    .name-header {
-        --img-width: 200px;
-
-        background-color: var(--color-primary);
-        color: var(--color-primary-reverse);
-        align-self: center;
-
-        padding: 1rem;
-        margin-top: calc(var(--page-padding-y) * -1);
-        padding-top: calc(var(--page-padding-y));
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-
-        --radius: calc(var(--img-width) / 2 + 0.5rem);
-        border-radius: 0 0 var(--radius) var(--radius);
-
-        h1,
-        p {
-            text-align: center;
-            word-break: keep-all;
-        }
-
-        img {
-            width: var(--img-width);
-            border-radius: 50%;
-        }
+    .experience-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .intro {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+    .dates {
+      color: var(--color-faded);
+      font-weight: 600;
     }
+  }
 
-    .contact-list {
-        list-style-type: none;
-        padding: 0;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-
-        li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .emoji {
-            display: inline-block;
-            font-size: 1rem;
-            margin-left: 0.3rem;
-        }
-
-        .icon {
-            width: auto;
-            height: 1.5rem;
-        }
-    }
-
-    .tag-list {
-        list-style-type: none;
-
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        flex-direction: row;
-        padding-left: 0;
-
-        li {
-            background-color: var(--color-block);
-            color: var(--color-block-reverse);
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-        }
-    }
-
-    .skills-section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        article {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-    }
-
-    .experiences-section {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-
-        article {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .experience-header {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .dates {
-            color: var(--color-faded);
-            font-weight: 600;
-        }
-    }
-
-    .small-section {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .small-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 @layer overrides;
